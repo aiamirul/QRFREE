@@ -1,0 +1,6 @@
+{
+  "name": "Kanika QR Makeah - Custom QR Code Studio & API Engine",
+  "description": "Generate high-resolution QR codes with centered brand logos, optical calibration, presets, and dynamic API endpoints (?mode=api&url=mystery.com&centerlogo=website).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
