@@ -210,7 +210,7 @@ export const SwaggerDocView: React.FC<SwaggerDocViewProps> = ({ onBackToStudio }
           'content-type': contentTypeHeader,
           'cache-control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400',
           'access-control-allow-origin': '*',
-          'x-engine': 'Kanika-QR-Makeah-v1.4',
+          'x-engine': 'AmirulQR-Free-Foreva-v1.4',
           'x-powered-by': 'AI Studio Build Engine',
           'x-request-id': `req_${Math.random().toString(36).substring(2, 10)}`
         },

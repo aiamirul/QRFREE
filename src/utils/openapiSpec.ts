@@ -1,16 +1,16 @@
 /**
- * OpenAPI 3.1.0 Specification Definition for Kanika QR Makeah API
+ * OpenAPI 3.1.0 Specification Definition for AmirulQR Free Foreva API
  */
 
 export const OPENAPI_SPEC = {
   openapi: "3.1.0",
   info: {
-    title: "Kanika QR Makeah API & Engine",
+    title: "AmirulQR Free Foreva API & Engine",
     version: "1.4.0",
-    description: "Enterprise high-resolution QR code generator with centered brand logos, automated URL normalization, Reed-Solomon Level H calibration (30% error correction), and multi-format output (Interactive Inspector, Vector SVG, Binary PNG, and RESTful JSON).",
+    description: "AmirulQR Free Foreva: 100% free forever high-resolution QR code generator with centered brand logos, automated URL normalization, Reed-Solomon Level H calibration (30% error correction), and multi-format output (Interactive Inspector, Vector SVG, Binary PNG, and RESTful JSON).",
     contact: {
-      name: "Kanika QR Studio Support",
-      url: "https://kanika-qr.makeah"
+      name: "AmirulQR Free Foreva Support",
+      url: "https://amirulqr.free"
     },
     license: {
       name: "MIT",
@@ -370,7 +370,7 @@ export const SWAGGER_SAMPLE_PRESETS = [
     name: "WhatsApp Quick Chat Order",
     description: "Pre-filled WhatsApp click-to-chat URL with green styling and messenger badge.",
     params: {
-      url: "https://wa.me/15550192834?text=Hello%20Kanika",
+      url: "https://wa.me/15550192834?text=Hello%20AmirulQR",
       centerlogo: "whatsapp",
       format: "view",
       ec: "H",

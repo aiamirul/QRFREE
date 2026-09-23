@@ -1,6 +1,6 @@
 {
-  "name": "Kanika QR Makeah - Custom QR Code Studio & API Engine",
-  "description": "Generate high-resolution QR codes with centered brand logos, optical calibration, presets, and dynamic API endpoints (?mode=api&url=mystery.com&centerlogo=website).",
+  "name": "AmirulQR Free Foreva - Custom QR Code Studio & API Engine",
+  "description": "AmirulQR Free Foreva: 100% free forever high-resolution QR code studio with centered brand logos, optical calibration, templates, and dynamic API endpoints (?mode=api&url=mystery.com&centerlogo=website).",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

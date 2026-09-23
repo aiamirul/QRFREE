@@ -107,7 +107,7 @@ export const ApiResponderView: React.FC<ApiResponderViewProps> = ({ apiParams, o
   const jsonResponse = {
     status: 'success',
     code: 200,
-    service: 'Kanika QR Makeah API',
+    service: 'AmirulQR Free Foreva API',
     timestamp: new Date().toISOString(),
     execution_time: `${generationTimeMs}ms`,
     request: {
@@ -138,7 +138,7 @@ export const ApiResponderView: React.FC<ApiResponderViewProps> = ({ apiParams, o
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <div className="flex items-center gap-2">
               <KanikaLogo size={24} />
-              <span className="text-xs font-semibold text-slate-300">Kanika API / Raw SVG</span>
+              <span className="text-xs font-semibold text-slate-300">AmirulQR API / Raw SVG</span>
             </div>
             <button
               onClick={() => onOpenInStudio(qrState)}
@@ -179,7 +179,7 @@ export const ApiResponderView: React.FC<ApiResponderViewProps> = ({ apiParams, o
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <div className="flex items-center gap-2">
               <KanikaLogo size={22} />
-              <span className="font-semibold text-white">Kanika QR Makeah API Response [JSON]</span>
+              <span className="font-semibold text-white">AmirulQR Free Foreva API Response [JSON]</span>
             </div>
             <div className="flex items-center gap-2">
               <button
@@ -218,14 +218,14 @@ export const ApiResponderView: React.FC<ApiResponderViewProps> = ({ apiParams, o
           <div>
             <div className="flex items-center gap-2">
               <span className="font-bold text-white font-display tracking-tight text-base">
-                Kanika QR Makeah
+                AmirulQR Free Foreva
               </span>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                 API MODE
               </span>
             </div>
             <p className="text-[11px] text-slate-400">
-              Live QR API Endpoint Engine & Webhook Responder
+              100% Free Forever Live QR API Endpoint Engine & Webhook Responder
             </p>
           </div>
         </div>
@@ -434,7 +434,7 @@ export const ApiResponderView: React.FC<ApiResponderViewProps> = ({ apiParams, o
                   <div className="flex items-center justify-between text-xs font-semibold text-slate-300 mb-1.5">
                     <span>1. Direct HTML Image Tag</span>
                     <button
-                      onClick={() => copyToClipboard(`<img src="${currentApiUrl}&format=svg" alt="Kanika QR Code" width="250" height="250" />`, 'html')}
+                      onClick={() => copyToClipboard(`<img src="${currentApiUrl}&format=svg" alt="AmirulQR Free Foreva" width="250" height="250" />`, 'html')}
                       className="text-[11px] text-indigo-400 hover:text-indigo-300 flex items-center gap-1"
                     >
                       {copiedField === 'html' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
@@ -442,7 +442,7 @@ export const ApiResponderView: React.FC<ApiResponderViewProps> = ({ apiParams, o
                     </button>
                   </div>
                   <pre className="bg-slate-950 p-3 rounded-lg border border-slate-800 text-xs font-mono text-cyan-300 overflow-x-auto">
-{`<img src="${currentApiUrl}&format=svg" alt="Kanika QR Code" width="250" height="250" />`}
+{`<img src="${currentApiUrl}&format=svg" alt="AmirulQR Free Foreva" width="250" height="250" />`}
                   </pre>
                 </div>
 

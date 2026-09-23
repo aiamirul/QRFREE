@@ -58,14 +58,14 @@ export const ApiDocsModal: React.FC<ApiDocsModalProps> = ({
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-base font-bold text-white font-display">
-                  Kanika QR Makeah API Engine
+                  AmirulQR Free Foreva API Engine
                 </h3>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                  GET API
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">
+                  FREE API
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Generate high-resolution QR codes with centered logos dynamically via URL queries
+                100% Free forever QR code generator with centered logos dynamically via URL queries
               </p>
             </div>
           </div>
@@ -297,7 +297,7 @@ export const ApiDocsModal: React.FC<ApiDocsModalProps> = ({
         {/* Footer */}
         <div className="flex items-center justify-between px-6 py-3.5 border-t border-slate-800 bg-slate-950/60">
           <span className="text-xs text-slate-400">
-            Powered by <strong className="text-white">Kanika QR Makeah</strong>
+            Powered by <strong className="text-white">AmirulQR Free Foreva</strong>
           </span>
           <button
             onClick={onClose}

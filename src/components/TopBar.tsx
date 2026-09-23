@@ -43,11 +43,14 @@ export const TopBar: React.FC<TopBarProps> = ({
 
   return (
     <header className="sticky top-0 z-30 flex items-center justify-between px-6 py-3 bg-slate-950/85 backdrop-blur-md border-b border-slate-800">
-      {/* Zone 1: Brand Wordmark & Kanika Logo */}
+      {/* Zone 1: Brand Wordmark & AmirulQR Logo */}
       <div className="flex items-center gap-2.5">
         <KanikaLogo size={32} />
-        <a href="/" className="flex items-center gap-2 text-lg font-bold font-display tracking-tight text-white hover:text-indigo-300 transition-colors">
-          <span>Kanika QR Makeah</span>
+        <a href="/" className="flex items-center gap-2 text-lg font-bold font-display tracking-tight text-white hover:text-emerald-300 transition-colors group">
+          <span>AmirulQR</span>
+          <span className="text-xs font-mono font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 group-hover:bg-emerald-500/30">
+            Free Foreva
+          </span>
         </a>
       </div>
 

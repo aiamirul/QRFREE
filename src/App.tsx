@@ -62,21 +62,21 @@ const INITIAL_STATE: QRState = {
     hidden: false
   },
   vcard: {
-    firstName: 'Alex',
-    lastName: 'Vance',
-    organization: 'Kanika Studio',
-    title: 'Design Director',
+    firstName: 'Amirul',
+    lastName: 'Studio',
+    organization: 'AmirulQR',
+    title: 'Creator',
     phone: '+1 555-0199',
-    email: 'alex@kanika.studio',
+    email: 'hello@amirulqr.free',
     website: 'https://mystery.com'
   },
   text: {
-    content: 'Welcome to Kanika QR Makeah!'
+    content: 'Welcome to AmirulQR Free Foreva!'
   },
   email: {
-    address: 'contact@kanika.studio',
+    address: 'contact@amirulqr.free',
     subject: 'Project Inquiry',
-    body: 'Hi, I came across your work and would love to connect.'
+    body: 'Hi! Sent via AmirulQR Free Foreva.'
   },
   errorCorrection: 'H',
   dotStyle: 'rounded',
@@ -343,10 +343,12 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400 mb-2">
-              <span className="text-indigo-400 font-semibold flex items-center gap-1">
-                <KanikaLogo size={16} />
-                <span>Kanika QR Makeah</span>
+              <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
+                <KanikaLogo size={18} />
+                <span>AmirulQR Free Foreva</span>
               </span>
+              <span aria-hidden="true">·</span>
+              <span className="text-emerald-300/90 font-medium">100% Free Forever</span>
               <span aria-hidden="true">·</span>
               <span>Centered Badges & Optical Calibration</span>
               <span aria-hidden="true">·</span>
@@ -361,10 +363,10 @@ export default function App() {
               </button>
             </div>
             <h1 className="text-2xl md:text-3xl font-bold font-display tracking-tight text-white max-w-2xl text-balance">
-              Kanika QR Makeah — Custom QR Studio & Live API
+              AmirulQR Free Foreva — 100% Free Custom QR Studio & Live API
             </h1>
             <p className="text-sm text-slate-400 mt-1.5 max-w-2xl">
-              Generate QR codes with centered brand logos, optical calibration, or query this app directly as an API with <code className="text-indigo-300 bg-slate-900 px-1.5 py-0.5 rounded font-mono text-xs">?mode=api&url=mystery.com&centerlogo=website</code>.
+              Generate high-resolution QR codes with centered brand logos, optical calibration, or query this app directly as an API with <code className="text-emerald-300 bg-slate-900 px-1.5 py-0.5 rounded font-mono text-xs">?mode=api&url=mystery.com&centerlogo=website</code>.
             </p>
           </div>
 
@@ -474,9 +476,11 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <KanikaLogo size={20} />
-            <span className="font-semibold text-slate-300 font-display">Kanika QR Makeah</span>
+            <span className="font-semibold text-slate-300 font-display">AmirulQR Free Foreva</span>
             <span aria-hidden="true">·</span>
-            <span>QR Generator with Centered Badges, Optical Calibration & Live API Mode</span>
+            <span className="text-emerald-400 font-mono text-[11px] font-bold px-1.5 py-0.2 bg-emerald-500/15 rounded">FREE FOREVA</span>
+            <span aria-hidden="true">·</span>
+            <span>QR Studio with Centered Badges, Optical Calibration & Live API</span>
           </div>
 
           <div className="flex items-center gap-4 text-slate-400">
