@@ -476,13 +476,20 @@ export async function renderQRCodeToCanvas(
       const iconY = qrCenterPixelY - logoPixelSize / 2;
 
       ctx.save();
-      if (state.logo.bgShape === 'circle' && state.logo.bgPadding === 0) {
+      if (state.logo.bgShape === 'circle') {
         ctx.beginPath();
-        ctx.arc(qrCenterPixelX, qrCenterPixelY, logoPixelSize / 2, 0, Math.PI * 2);
+        const clipRadius = state.logo.bgPadding === 0 ? logoPixelSize / 2 : totalBadgeSize / 2;
+        ctx.arc(qrCenterPixelX, qrCenterPixelY, clipRadius, 0, Math.PI * 2);
         ctx.clip();
-      } else if (state.logo.bgShape === 'rounded' && state.logo.bgPadding === 0) {
-        drawRoundedRect(ctx, iconX, iconY, logoPixelSize, logoPixelSize, logoPixelSize * 0.22);
-        ctx.clip();
+      } else if (state.logo.bgShape === 'rounded') {
+        if (state.logo.bgPadding === 0) {
+          drawRoundedRect(ctx, iconX, iconY, logoPixelSize, logoPixelSize, logoPixelSize * 0.22);
+          ctx.clip();
+        } else {
+          const cornerR = totalBadgeSize * 0.22;
+          drawRoundedRect(ctx, badgeX, badgeY, totalBadgeSize, totalBadgeSize, cornerR);
+          ctx.clip();
+        }
       }
 
       ctx.drawImage(logoImg, iconX, iconY, logoPixelSize, logoPixelSize);

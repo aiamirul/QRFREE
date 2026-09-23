@@ -114,6 +114,10 @@ export const ContentTabs: React.FC<ContentTabsProps> = ({ state, onChange }) => 
           raw = `https://play.google.com/store/apps/details?id=${nextStore.appId || 'com.example.app'}`;
         }
       }
+
+      const isGoogle = nextStore.platform === 'google';
+      const isBannerMatching = prev.frame.text === 'GET ON APP STORE' || prev.frame.text === 'GET IT ON GOOGLE PLAY';
+
       return {
         ...prev,
         appStore: nextStore,
@@ -121,8 +125,15 @@ export const ContentTabs: React.FC<ContentTabsProps> = ({ state, onChange }) => 
         logo: {
           ...prev.logo,
           sourceType: 'preset',
-          presetId: nextStore.platform === 'apple' ? 'apple' : 'google-play'
-        }
+          presetId: isGoogle ? 'google-play' : 'apple'
+        },
+        frame: isBannerMatching
+          ? {
+              ...prev.frame,
+              text: isGoogle ? 'GET IT ON GOOGLE PLAY' : 'GET ON APP STORE',
+              frameColor: isGoogle ? '#01875F' : '#0071E3'
+            }
+          : prev.frame
       };
     });
   };

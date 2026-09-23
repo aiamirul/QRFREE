@@ -20,6 +20,7 @@ import { constructApiUrl } from '../utils/apiHandler';
 interface ApiDocsModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenSwagger?: () => void;
   currentUrl?: string;
   currentLogoPreset?: string;
 }
@@ -27,6 +28,7 @@ interface ApiDocsModalProps {
 export const ApiDocsModal: React.FC<ApiDocsModalProps> = ({
   isOpen,
   onClose,
+  onOpenSwagger,
   currentUrl = 'mystery.com',
   currentLogoPreset = 'website'
 }) => {
@@ -77,6 +79,39 @@ export const ApiDocsModal: React.FC<ApiDocsModalProps> = ({
 
         {/* Scrollable Content */}
         <div className="p-6 overflow-y-auto space-y-6">
+          {/* Swagger OAS 3.1 Banner */}
+          {onOpenSwagger && (
+            <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-950/60 to-slate-900 border border-emerald-500/40 flex items-center justify-between gap-3 shadow-md">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  <Terminal className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-white font-display">Interactive Swagger Doc Page</span>
+                    <span className="text-[10px] font-mono px-1.5 py-0.2 bg-emerald-500/20 text-emerald-300 rounded font-bold">
+                      OAS 3.1
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-slate-300 mt-0.5">
+                    Explore all API parameters, request schemas, variables, and execute live queries in Swagger UI.
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  onClose();
+                  onOpenSwagger();
+                }}
+                className="px-3.5 py-1.5 text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors shrink-0 flex items-center gap-1.5 shadow"
+              >
+                <span>Open Swagger</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          )}
+
           {/* Quick Example Callout */}
           <div className="p-4 rounded-xl bg-gradient-to-r from-indigo-950/50 to-purple-950/30 border border-indigo-500/30 space-y-2">
             <div className="flex items-center gap-2 text-xs font-semibold text-indigo-300">

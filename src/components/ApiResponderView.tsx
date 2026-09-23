@@ -24,9 +24,10 @@ import { QRState } from '../types/qr';
 interface ApiResponderViewProps {
   apiParams: ApiRequestParams;
   onOpenInStudio: (state: QRState) => void;
+  onOpenSwagger?: () => void;
 }
 
-export const ApiResponderView: React.FC<ApiResponderViewProps> = ({ apiParams, onOpenInStudio }) => {
+export const ApiResponderView: React.FC<ApiResponderViewProps> = ({ apiParams, onOpenInStudio, onOpenSwagger }) => {
   const [activeTab, setActiveTab] = useState<'preview' | 'svg' | 'json' | 'code'>('preview');
   const [svgString, setSvgString] = useState<string>('');
   const [pngDataUrl, setPngDataUrl] = useState<string>('');
@@ -230,6 +231,15 @@ export const ApiResponderView: React.FC<ApiResponderViewProps> = ({ apiParams, o
         </div>
 
         <div className="flex items-center gap-2.5">
+          {onOpenSwagger && (
+            <button
+              onClick={onOpenSwagger}
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-emerald-300 bg-emerald-950/50 hover:bg-emerald-900/50 border border-emerald-500/30 rounded-lg transition-colors"
+            >
+              <Terminal className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Swagger Docs</span>
+            </button>
+          )}
           <button
             onClick={() => onOpenInStudio(qrState)}
             className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 rounded-lg shadow-sm transition-all"

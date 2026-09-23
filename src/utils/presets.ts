@@ -42,15 +42,20 @@ export const PRESET_LOGOS: PresetLogo[] = [
     id: 'google-play',
     name: 'Google Play',
     category: 'store',
-    brandBgColor: '#0F172A',
-    defaultForeground: '#0284C7',
+    brandBgColor: '#01875F',
+    defaultForeground: '#01875F',
     iconSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 170" width="100%" height="100%">
-      <rect width="170" height="170" rx="36" fill="#0f172a"/>
-      <g transform="translate(42, 34) scale(0.48)">
-        <path fill="#4285F4" d="M12.8 5.7c-3.1 3.2-5 8.1-5 14.4v140.1c0 6.3 1.9 11.2 5 14.4l1.2 1 80.2-80.2v-1.9L14 4.7l-1.2 1z"/>
-        <path fill="#FBBC04" d="M121 122.4l-26.8-26.8v-1.9l26.8-26.8.8.4 31.8 18.1c9.1 5.2 9.1 13.6 0 18.8L121 122.4z"/>
-        <path fill="#EA4335" d="M121.8 122L94.2 94.4 14 174.6c4.3 4.5 11.4 5.1 19.6.5l88.2-50.1"/>
-        <path fill="#34A853" d="M121.8 66.8L33.6 16.7C25.4 12.1 18.3 12.7 14 17.2l80.2 80.2 27.6-27.6v-3z"/>
+      <rect width="170" height="170" rx="38" fill="#ffffff"/>
+      <rect width="168" height="168" x="1" y="1" rx="37" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+      <g transform="translate(42, 30) scale(3.42)">
+        <!-- Bottom Red Sector -->
+        <path fill="#EA4335" d="M13.54 15.28.12 29.34a3.66 3.66 0 0 0 5.33 2.16l15.1-8.6Z"/>
+        <!-- Right Yellow Sector -->
+        <path fill="#FBBC04" d="m27.11 12.89-6.53-3.74-7.35 6.45 7.38 7.28 6.48-3.7a3.54 3.54 0 0 0 1.5-4.79 3.62 3.62 0 0 0-1.5-1.5z"/>
+        <!-- Left Blue Sector -->
+        <path fill="#4285F4" d="M.12 2.66a3.57 3.57 0 0 0-.12.92v24.84a3.57 3.57 0 0 0 .12.92L14 15.64Z"/>
+        <!-- Top Green Sector -->
+        <path fill="#34A853" d="m13.64 16 6.94-6.85L5.5.51A3.73 3.73 0 0 0 3.63 0 3.64 3.64 0 0 0 .12 2.65Z"/>
       </g>
     </svg>`
   },
@@ -255,6 +260,50 @@ export const CURATED_TEMPLATES: CuratedTemplate[] = [
         text: 'GET ON APP STORE',
         textColor: '#ffffff',
         frameColor: '#0071E3'
+      }
+    }
+  },
+  {
+    id: 'google-play-store',
+    name: 'Google Play Official',
+    description: 'Vibrant Android Google Play styling with verified center logo, emerald accent, and install banner.',
+    category: 'App Store',
+    badge: 'Google Play',
+    state: {
+      contentType: 'appstore',
+      appStore: { platform: 'google', appId: 'com.instagram.android', customUrl: 'https://play.google.com/store/apps/details?id=com.instagram.android' },
+      rawText: 'https://play.google.com/store/apps/details?id=com.instagram.android',
+      errorCorrection: 'H',
+      dotStyle: 'rounded',
+      eyeFrameStyle: 'rounded',
+      eyePupilStyle: 'rounded',
+      colors: {
+        type: 'solid',
+        primary: '#01875F',
+        secondary: '#00694a',
+        gradientAngle: 45,
+        background: '#ffffff',
+        transparentBackground: false,
+        customEyeColors: true,
+        eyeFrameColor: '#01875F',
+        eyePupilColor: '#00694a'
+      },
+      logo: {
+        sourceType: 'preset',
+        presetId: 'google-play',
+        sizeRatio: 0.23,
+        bgShape: 'rounded',
+        bgColor: '#ffffff',
+        bgPadding: 6,
+        borderWidth: 2,
+        borderColor: '#d1fae5',
+        removeModulesBehind: true
+      },
+      frame: {
+        style: 'bottom-banner',
+        text: 'GET IT ON GOOGLE PLAY',
+        textColor: '#ffffff',
+        frameColor: '#01875F'
       }
     }
   },

@@ -34,6 +34,7 @@ import { RecentLinksModal } from './components/RecentLinksModal';
 import { RecentLinksBar } from './components/RecentLinksBar';
 import { ApiResponderView } from './components/ApiResponderView';
 import { ApiDocsModal } from './components/ApiDocsModal';
+import { SwaggerDocView } from './components/SwaggerDocView';
 import { KanikaLogo } from './components/KanikaLogo';
 
 const INITIAL_STATE: QRState = {
@@ -115,9 +116,29 @@ const INITIAL_STATE: QRState = {
 const STORAGE_KEY = 'kanika_qr_state_v1';
 
 export default function App() {
-  // Check if URL parameters request API mode
+  // Check if URL parameters request API mode or Swagger doc mode
   const [apiParams, setApiParams] = useState(() => parseApiQueryParams());
   const [isApiMode, setIsApiMode] = useState(() => apiParams.isApiMode);
+  const [isSwaggerView, setIsSwaggerView] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    const p = new URLSearchParams(window.location.search);
+    const mode = p.get('mode');
+    return mode === 'swagger' || mode === 'docs' || p.has('swagger') || p.has('docs') || window.location.pathname.startsWith('/docs') || window.location.pathname.startsWith('/swagger');
+  });
+
+  // Keep state in sync with browser navigation (Back/Forward)
+  useEffect(() => {
+    const handleLocationChange = () => {
+      const p = new URLSearchParams(window.location.search);
+      const mode = p.get('mode');
+      setIsSwaggerView(mode === 'swagger' || mode === 'docs' || p.has('swagger') || p.has('docs') || window.location.pathname.startsWith('/docs') || window.location.pathname.startsWith('/swagger'));
+      const parsed = parseApiQueryParams();
+      setApiParams(parsed);
+      setIsApiMode(parsed.isApiMode);
+    };
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
 
   const [state, setState] = useState<QRState>(() => {
     // If URL has direct parameters even if not mode=api (e.g. url=...&centerlogo=...)
@@ -259,11 +280,33 @@ export default function App() {
     }
   };
 
+  // If Swagger / OpenAPI interactive documentation is active (?mode=swagger or ?mode=docs)
+  if (isSwaggerView) {
+    return (
+      <SwaggerDocView
+        onBackToStudio={() => {
+          setIsSwaggerView(false);
+          const url = new URL(window.location.href);
+          url.searchParams.delete('mode');
+          url.searchParams.delete('swagger');
+          url.searchParams.delete('docs');
+          window.history.pushState({}, '', url.pathname + (url.search ? url.search : ''));
+        }}
+      />
+    );
+  }
+
   // If app is queried in API mode (?mode=api&url=mystery.com&centerlogo=website)
   if (isApiMode) {
     return (
       <ApiResponderView
         apiParams={apiParams}
+        onOpenSwagger={() => {
+          setIsSwaggerView(true);
+          const url = new URL(window.location.href);
+          url.searchParams.set('mode', 'swagger');
+          window.history.pushState({}, '', url.toString());
+        }}
         onOpenInStudio={(apiState) => {
           setState(apiState);
           setIsApiMode(false);
@@ -281,6 +324,12 @@ export default function App() {
         onOpenTemplates={() => setIsTemplateModalOpen(true)}
         onOpenHistory={() => setIsHistoryModalOpen(true)}
         onOpenApiDocs={() => setIsApiDocsModalOpen(true)}
+        onOpenSwaggerDocs={() => {
+          setIsSwaggerView(true);
+          const url = new URL(window.location.href);
+          url.searchParams.set('mode', 'swagger');
+          window.history.pushState({}, '', url.toString());
+        }}
         historyCount={history.length}
         onCopyImage={handleCopySuccess}
         onExportPng={handleExportPng}
@@ -432,6 +481,19 @@ export default function App() {
 
           <div className="flex items-center gap-4 text-slate-400">
             <button
+              onClick={() => {
+                setIsSwaggerView(true);
+                const url = new URL(window.location.href);
+                url.searchParams.set('mode', 'swagger');
+                window.history.pushState({}, '', url.toString());
+              }}
+              className="hover:text-emerald-400 transition-colors font-mono flex items-center gap-1 text-emerald-400"
+            >
+              <Terminal className="w-3 h-3" />
+              <span>Swagger OAS 3.1</span>
+            </button>
+            <span aria-hidden="true">·</span>
+            <button
               onClick={() => setIsApiDocsModalOpen(true)}
               className="hover:text-indigo-400 transition-colors font-mono"
             >
@@ -470,6 +532,13 @@ export default function App() {
       <ApiDocsModal
         isOpen={isApiDocsModalOpen}
         onClose={() => setIsApiDocsModalOpen(false)}
+        onOpenSwagger={() => {
+          setIsApiDocsModalOpen(false);
+          setIsSwaggerView(true);
+          const url = new URL(window.location.href);
+          url.searchParams.set('mode', 'swagger');
+          window.history.pushState({}, '', url.toString());
+        }}
         currentUrl={state.url || state.rawText || 'mystery.com'}
         currentLogoPreset={state.logo.presetId || 'website'}
       />

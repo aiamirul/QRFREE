@@ -6,6 +6,7 @@ interface TopBarProps {
   onOpenTemplates: () => void;
   onOpenHistory: () => void;
   onOpenApiDocs?: () => void;
+  onOpenSwaggerDocs?: () => void;
   historyCount: number;
   onCopyImage: () => void;
   onExportPng: () => void;
@@ -18,6 +19,7 @@ export const TopBar: React.FC<TopBarProps> = ({
   onOpenTemplates,
   onOpenHistory,
   onOpenApiDocs,
+  onOpenSwaggerDocs,
   historyCount,
   onCopyImage,
   onExportPng,
@@ -67,6 +69,19 @@ export const TopBar: React.FC<TopBarProps> = ({
           <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
           <span>Presets</span>
         </button>
+        {onOpenSwaggerDocs && (
+          <button
+            onClick={onOpenSwaggerDocs}
+            className="flex items-center gap-1.5 text-slate-200 hover:text-emerald-300 transition-colors px-2 py-1 rounded-md bg-emerald-950/40 border border-emerald-500/30 group"
+            title="Open Interactive Swagger & OpenAPI 3.1 Documentation"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-400 group-hover:animate-ping" />
+            <span className="font-semibold text-xs text-emerald-200">Swagger Docs</span>
+            <span className="text-[9px] font-mono px-1 py-0.2 bg-emerald-500/20 text-emerald-300 rounded font-bold">
+              OAS 3.1
+            </span>
+          </button>
+        )}
         {onOpenApiDocs && (
           <button
             onClick={onOpenApiDocs}
